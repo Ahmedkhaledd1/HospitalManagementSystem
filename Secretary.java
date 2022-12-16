@@ -45,9 +45,8 @@ class Secretary extends Person {
     this.password = password;
   }
 
-  void login(String userName, String password) {
-    // I am assuing SystemManager.getSecretaries() returns all the secretaries in
-    // the database
+  public void login(String userName, String password) {
+    // I am assuing SystemManager.getSecretaries() returns all the secretaries in the database
     for (Secretary sec : SystemManager.getSecretaries()) {
       if (sec.getUserName().equals(userName) && sec.getPassword().equals(password)) {
         System.out.println("I am logged in as a secretary");
@@ -55,27 +54,28 @@ class Secretary extends Person {
     }
   }
 
-  void addApointment(String date, String reservationTime, Doctor doctor, bool excuse) {
+  public void addApointment(String date, String reservationTime, Doctor doctor, bool excuse) {
     // This function should be in SystemManager in my opinion
+    Appointment appointment = new Appointment(date, reservationTime, doctor, excuse);
+    SystemManger.addAppointmentToDoctor(doctor, appointment);
 
   }
 
-  void editApointment(Apointment appointment) {
+  public void editApointment(Doctor doctor, Apointment appointment) {
     //edit the appointment to what?
 
   }
 
-  void initiateExcuse(Schedule schedule, Doctor doctor) {
+  public void initiateExcuse(Schedule schedule, Doctor doctor) {
 
   }
 
-  void editSchedule(Schedule schedule) {
+  public void editSchedule(Schedule schedule) {
     // edit the schedule with what?
 
   }
 
-  void displaySchedule() {
-
+  public void displaySchedule() {
 
   }
 
