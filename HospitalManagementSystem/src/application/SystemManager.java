@@ -79,9 +79,20 @@ public class SystemManager {
 		doctors.add(doctor);
 	}
 
+
 	public static ArrayList<Patient> getPatientsOfADoctor(Doctor doctor) {
 		return doctorToPatientMap.get(doctor);
 	}
+
+  public static void editAppointment(Doctor doctor, Appointment appointment, Appointment newAppointment) {
+    ArrayList<Appointment> appointments = doctorToAppointmentsMap[doctor];
+    for (var app : appointments) {
+      if (appointment.equals(app)) {
+        app = newAppointment;
+      }
+    }
+  }
+
 
 	public static void addPatientToDoctor(Doctor doctor, Patient patient) {
 		doctorToPatientMap.get(doctor).add(patient);
