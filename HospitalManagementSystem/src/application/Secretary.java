@@ -56,14 +56,14 @@ class Secretary extends Person {
     }
   }
 
-  public void addApointment(String date, String reservationTime, Doctor doctor, bool excuse) {
+  public void addApointment(String date, String reservationTime, Doctor doctor, boolean excuse) {
     // This function should be in SystemManager in my opinion
     Appointment appointment = new Appointment(date, reservationTime, doctor, excuse);
-    SystemManger.addAppointmentToDoctor(doctor, appointment);
+    SystemManager.addAppointmentToDoctor(doctor, appointment);
 
   }
 
-  public void editApointment(Doctor doctor, Apointment appointment) {
+  public void editApointment(Doctor doctor, Appointment appointment) {
     //edit the appointment to what?
 
   }
