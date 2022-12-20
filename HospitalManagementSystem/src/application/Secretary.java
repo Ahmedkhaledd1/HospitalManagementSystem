@@ -60,6 +60,7 @@ class Secretary extends Person {
 
   public void editApointment(Doctor doctor, Appointment appointment, Appointment newAppointment) {
 	  SystemManager.editAppointment(doctor, appointment, newAppointment);
+
   }
 
   public void initiateExcuse(Schedule schedule, Doctor doctor) {

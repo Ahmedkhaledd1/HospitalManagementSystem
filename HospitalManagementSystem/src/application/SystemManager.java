@@ -83,6 +83,7 @@ public class SystemManager {
 		return doctorToPatientMap.get(doctor);
 	}
 
+
 	public static void addPatientToDoctor(Doctor doctor, Patient patient) {
 		doctorToPatientMap.get(doctor).add(patient);
 	}
