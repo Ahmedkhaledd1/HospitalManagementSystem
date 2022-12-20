@@ -1,3 +1,5 @@
+package application;
+
 public class Person {
   private String name;
   private char gender;
@@ -17,7 +19,7 @@ public class Person {
       String martialStatus) {
     this.name = name;
     this.gender = gender;
-    this.adress = adress;
+    this.address = address;
     this.mobileNumber = mobileNumber;
     this.age = age;
     this.email = email;

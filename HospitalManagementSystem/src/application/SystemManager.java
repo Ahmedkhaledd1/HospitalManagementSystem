@@ -1,24 +1,64 @@
-import java.awt.List;
+package application;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SystemManger {
+public class SystemManager {
+	
+	
   private static ArrayList<Secretary> secretaries = new ArrayList<Secretary>();
   private static ArrayList<Patient> patients = new ArrayList<Patient>();
   private static ArrayList<Doctor> doctors = new ArrayList<Doctor>();
   private static HashMap<Doctor, ArrayList<Patient>> doctorToPatientMap = new HashMap<Doctor, ArrayList<Patient>>();
   private static HashMap<Doctor, ArrayList<Appointment>> doctorToAppointmentsMap = new HashMap<Doctor, ArrayList<Appointment>>();
 
+  
+  
+  
+  public static ArrayList<Secretary> getSecretaries() {
+	return secretaries;
+}
+public static void setSecretaries(ArrayList<Secretary> secretaries) {
+	SystemManager.secretaries = secretaries;
+}
+public static ArrayList<Patient> getPatients() {
+	return patients;
+}
+public static void setPatients(ArrayList<Patient> patients) {
+	SystemManager.patients = patients;
+}
+public static ArrayList<Doctor> getDoctors() {
+	return doctors;
+}
+public static void setDoctors(ArrayList<Doctor> doctors) {
+	SystemManager.doctors = doctors;
+}
+public static  ArrayList<Patient> getDoctorToPatientMap(Doctor d) {
+	return doctorToPatientMap.get(d);
+}
+public static void setDoctorToPatientMap(Doctor d, ArrayList<Patient> pp) {
+	doctorToPatientMap.put(d, pp);
+}
+public static  ArrayList<Appointment> getDoctorToAppointmentsMap(Doctor d) {
+	return doctorToAppointmentsMap.get(d);
+}
+public static void setDoctorToAppointmentsMap(Doctor d,ArrayList<Appointment> ap) {
+	//SystemManager.doctorToAppointmentsMap <d,ap>;
+  doctorToAppointmentsMap.put(d, ap);
+}
 
-  public static void addSecretary(Secretary secretary) {
+
+
+/*
+  public  void addSecretary(Secretary secretary) {
     secretaries.add(secretary);
   }
 
-  public static void addDoctor(Doctor doctor) {
-    secretaries.add(doctor);
+  public  void addDoctor(Doctor doctor) {
+   doctors.add(doctor);
   }
 
-  public static ArrayList<Patient> getPatients(Doctor doctor) {
+  public static HashMap<Doctor, ArrayList<Patient>> getPatientsOfADoctor(Doctor doctor) {
     return doctorToPatientMap[doctor];
   }
 
@@ -41,6 +81,9 @@ public class SystemManger {
   public static void addAppointmentToDoctor(Doctor doctor, Appointment appointment) {
     doctorToAppointmentsMap[doctor].add(appointment);
   }
+*/
 
-
+  
+  
+  
 }

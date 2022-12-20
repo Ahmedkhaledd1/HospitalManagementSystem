@@ -1,3 +1,5 @@
+package application;
+
 class Secretary extends Person {
   private String userName;
   private String password;
@@ -14,7 +16,7 @@ class Secretary extends Person {
       String password
   ) 
   {
-    super(name, gender, adress, mobileNumber, age, email, martialStatus, userName, password);
+    super(name, gender, address, mobileNumber, age, email, martialStatus);
     this.userName = userName;
     this.password = password;
   }
@@ -26,7 +28,7 @@ class Secretary extends Person {
       int age,
       String email,
       String martialStatus) {
-
+	
   }
 
   public String getUserName() {
