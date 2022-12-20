@@ -61,9 +61,8 @@ class Secretary extends Person {
 
   }
 
-  public void editApointment(Doctor doctor, Apointment appointment) {
-    //edit the appointment to what?
-
+  public void editApointment(Doctor doctor, Apointment appointment, Appointment newAppointment) {
+    SystemManger.editAppointment(doctor, appointment, newAppointment);
   }
 
   public void initiateExcuse(Schedule schedule, Doctor doctor) {

@@ -34,8 +34,13 @@ public class SystemManger {
     doctorToPatientMap[doctor].add(patient);
   }
 
-  public static void editAppointment(Doctor doctor, Appointment appointment) {
-    //TODO
+  public static void editAppointment(Doctor doctor, Appointment appointment, Appointment newAppointment) {
+    ArrayList<Appointment> appointments = doctorToAppointmentsMap[doctor];
+    for (var app : appointments) {
+      if (appointment.equals(app)) {
+        app = newAppointment;
+      }
+    }
   }
 
   public static void addAppointmentToDoctor(Doctor doctor, Appointment appointment) {
