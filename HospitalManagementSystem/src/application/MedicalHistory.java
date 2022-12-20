@@ -8,8 +8,8 @@ public class MedicalHistory {
     
     MedicalHistory()
     {
-        symptoms =  new ArrayList<>();
-        treatment= new HashMap<String, String>();
+        this.symptoms =  new ArrayList<>();
+        this.treatment= new HashMap<String, String>();
     }
     public ArrayList<String> getSymptoms() {
         return symptoms;
