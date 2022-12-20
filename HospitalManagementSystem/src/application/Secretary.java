@@ -56,12 +56,10 @@ class Secretary extends Person {
   public void addApointment(String date, String reservationTime, Doctor doctor, boolean excuse) {
     Appointment appointment = new Appointment(date, reservationTime, doctor, excuse);
     SystemManager.addAppointmentToDoctor(doctor, appointment);
-
   }
 
   public void editApointment(Doctor doctor, Appointment appointment, Appointment newAppointment) {
 	  SystemManager.editAppointment(doctor, appointment, newAppointment);
-
   }
 
   public void initiateExcuse(Schedule schedule, Doctor doctor) {
