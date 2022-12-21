@@ -73,20 +73,23 @@ class Secretary extends Person {
 
   }
 
-  public void initiateExcuse(Schedule schedule, Doctor doctor) {
-	  //TODO
+  public void initiateExcuse(Schedule schedule, Doctor doc,String day) {
+	 		  
+		  schedule.getTimeSlots().get(day).remove(doc);
+		  
+	  }
+
+  
+
+  public void editSchedule(Schedule schedule,String time,String day,Doctor doc) {
+	  schedule.getTimeSlots().get(day).get(doc).remove(time);
+	  
 
   }
 
-  public void editSchedule(Schedule schedule) {
-	  //TODO
 
-  }
+ 
 
-  public void displaySchedule() {
-	  //TODO
-
-  }
   
   
   
@@ -109,5 +112,6 @@ class Secretary extends Person {
   }
 
   
+
 
 }

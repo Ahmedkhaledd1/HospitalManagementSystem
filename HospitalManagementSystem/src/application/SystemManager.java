@@ -132,6 +132,18 @@ public class SystemManager {
 	public static void addAppointmentToDoctor(Doctor doctor, Appointment appointment) {
 		doctorToAppointmentsMap.get(doctor).add(appointment);
 	}
+	public ArrayList<String> DisplaySchedule(String doctorName,String day) {
+		
+		for(Doctor doc:SystemManager.getDoctors()) {
+			if(doc.getName().equals(doctorName))
+				return schedule.getTimeSlots().get(day).get(doc);
+				
+			
+		}
+		return null;
+		
+		
+	}
 
 	public static Secretary getCurrentSecretary() {
 		return currentSecretary;
