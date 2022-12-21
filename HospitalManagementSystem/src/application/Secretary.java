@@ -40,9 +40,9 @@ class Secretary extends Person {
       String mobileNumber,
       int age,
       String email,
-      String martialStatus) {
+      String martialStatus,int id) {
 	  MedicalHistory medicalHistory = new MedicalHistory();
-	  Patient patient = new Patient(name, gender, address, mobileNumber, age, email, martialStatus, mobileNumber, medicalHistory);
+	  Patient patient = new Patient(name, gender, address, mobileNumber, age, email, martialStatus, id, medicalHistory);
 	  return patient;
   }
 
@@ -88,8 +88,7 @@ class Secretary extends Person {
   }
 
 
- 
-
+  
   
   
   

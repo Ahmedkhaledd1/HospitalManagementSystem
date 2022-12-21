@@ -31,7 +31,8 @@ public class SystemManager {
 		}
 	}
 	  
-		
+	
+	
 	public static void secertaryEditApointment(String doctorName, String resTime,String date,  Doctor doctor, boolean excuse) {
 		
 		for (Doctor doc : SystemManager.getDoctors()) {
@@ -47,7 +48,20 @@ public class SystemManager {
 		}
 }
 	
-	
+    public ArrayList<String> DisplaySchedule(String doctorName,String day) {
+		
+		for(Doctor doc:SystemManager.getDoctors()) {
+			if(doc.getName().equals(doctorName))
+				return schedule.getTimeSlots().get(day).get(doc);
+				
+			
+		}
+		return null;
+		
+		
+	}
+    
+    
 	//// Doctors Functions 
 	
 	public static void doctorLogin(String userName, String password) {	
@@ -63,6 +77,9 @@ public class SystemManager {
 		}
 	}
 	
+	
+ 
+
 	
 	
 	//// set and get
@@ -132,19 +149,8 @@ public class SystemManager {
 	public static void addAppointmentToDoctor(Doctor doctor, Appointment appointment) {
 		doctorToAppointmentsMap.get(doctor).add(appointment);
 	}
-	public ArrayList<String> DisplaySchedule(String doctorName,String day) {
-		
-		for(Doctor doc:SystemManager.getDoctors()) {
-			if(doc.getName().equals(doctorName))
-				return schedule.getTimeSlots().get(day).get(doc);
-				
-			
-		}
-		return null;
-		
-		
-	}
-
+	
+	
 	public static Secretary getCurrentSecretary() {
 		return currentSecretary;
 	}
