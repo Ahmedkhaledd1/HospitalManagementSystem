@@ -12,6 +12,8 @@ public class Doctor extends Person {
 		this.password=password;
 		this.specialization=specialization;
 	}
+	
+	///////main functions of doctor
 	public boolean login(String userName,String password)
 	{
 		if(this.userName.equals(userName) && this.password.equals(password))
@@ -20,6 +22,14 @@ public class Doctor extends Person {
 			return false;
 	}
 
+	public MedicalHistory getPatientMedicalHistory(Patient p) {
+		return p.getHistory();
+	}
+	
+	public void editPatientMedicalHistory(String diagnose,String treatment,Patient p) {
+		getPatientMedicalHistory(p).setTreatment( diagnose, treatment);
+	}
+	///seters and geters 
 	public String getSpecialization() {
 		return specialization;
 	}
@@ -44,12 +54,6 @@ public class Doctor extends Person {
 		this.password = password;
 	}
 	
-	public MedicalHistory getPatientMedicalHistory(Patient p) {
-		return p.getHistory();
-	}
-	public void editPatientMedicalHistory(String diagnose,String treatment,Patient p) {
-		getPatientMedicalHistory(p).setTreatment( diagnose, treatment);
-	}
 	
 
 }
