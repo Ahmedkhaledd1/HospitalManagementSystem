@@ -20,6 +20,19 @@ class Secretary extends Person {
     this.userName = userName;
     this.password = password;
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //main functions
 
   Patient register(String name,
       char gender,
@@ -33,33 +46,30 @@ class Secretary extends Person {
 	  return patient;
   }
 
-  public String getUserName() {
-    return userName;
+  public boolean login(String userName, String password) {
+	  //SystemManager.loginSecretary(userName, password);
+	  if(this.userName.equals(userName) && this.password.equals(password))
+			return true;
+		else
+			return false;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public void login(String userName, String password) {
-	  SystemManager.loginSecretary(userName, password);
-  }
-
-  public void addApointment(String date, String reservationTime, Doctor doctor, boolean excuse) {
+  public Appointment addApointment(String date, String reservationTime, Doctor doctor, boolean excuse) {
     Appointment appointment = new Appointment(date, reservationTime, doctor, excuse);
-    SystemManager.addAppointmentToDoctor(doctor, appointment);
+   
+    return appointment;
+    
+   // SystemManager.addAppointmentToDoctor(doctor, appointment);
   }
 
-  public void editApointment(Doctor doctor, Appointment appointment, Appointment newAppointment) {
-	  SystemManager.editAppointment(doctor, appointment, newAppointment);
+  public void editApointment( Appointment ap,String date, String reservationTime, Doctor doctor, boolean excuse) {
+	  
+	  ap.setDate(date);
+	  ap.setDoctor(doctor);
+	  ap.setExcuse(excuse);
+	  ap.setReservationTime(reservationTime);
+	  
+	  //SystemManager.editAppointment(doctor, appointment, newAppointment);
 
   }
 
@@ -77,5 +87,27 @@ class Secretary extends Person {
 	  //TODO
 
   }
+  
+  
+  
+  
+  /// set and get
+  public String getUserName() {
+    return userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  
 
 }
