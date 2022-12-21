@@ -12,6 +12,13 @@ public class Doctor extends Person {
 		this.password=password;
 		this.specialization=specialization;
 	}
+	public boolean login(String userName,String password)
+	{
+		if(this.userName.equals(userName) && this.password.equals(password))
+			return true;
+		else
+			return false;
+	}
 
 	public String getSpecialization() {
 		return specialization;
