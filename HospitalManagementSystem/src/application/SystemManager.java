@@ -11,6 +11,65 @@ public class SystemManager {
 	private static HashMap<Doctor, ArrayList<Patient>> doctorToPatientMap = new HashMap<Doctor, ArrayList<Patient>>();
 	private static HashMap<Doctor, ArrayList<Appointment>> doctorToAppointmentsMap = new HashMap<Doctor, ArrayList<Appointment>>();
 	private static Schedule schedule =new Schedule();
+	private static Secretary currentSecretary;
+	private static Doctor  currentDoctor;
+	
+	//main functions
+	
+	
+	// secretary functions 
+	public static void secretaryLogin(String userName, String password) {	
+		for (Secretary sec : SystemManager.getSecretaries()) {
+			
+			if (sec.getUserName().equals(userName)) {
+				if(sec.login(userName, password)) {
+					setCurrentSecretary(sec);
+					break;
+				}
+				
+			}
+		}
+	}
+	  
+		
+	public static void secertaryEditApointment(String doctorName, String resTime,String date,  Doctor doctor, boolean excuse) {
+		
+		for (Doctor doc : SystemManager.getDoctors()) {
+			
+			if (doc.getName().equals(doctorName)) {
+		for (Appointment element : getDoctorToAppointmentsMap(doc)) {
+			if(element.getReservationTime().equals(resTime))
+				getCurrentSecretary().editApointment(element, date, resTime, doc, excuse);
+			break;
+		}
+			}
+		
+		}
+}
+	
+	
+	//// Doctors Functions 
+	
+	public static void doctorLogin(String userName, String password) {	
+		for (Doctor  doc : SystemManager.getDoctors()) {
+			
+			if (doc.getUserName().equals(userName)) {
+				if(doc.login(userName, password)) {
+					setCurrentDoctor(doc);
+					break;
+				}
+				
+			}
+		}
+	}
+	
+	
+	
+	//// set and get
+	
+	
+	
+	
 	public static ArrayList<Secretary> getSecretaries() {
 		return secretaries;
 	}
@@ -19,25 +78,7 @@ public class SystemManager {
 		SystemManager.secretaries = secretaries;
 	}
 
-	public static void loginSecretary(String userName, String password) {
-		for (Secretary sec : SystemManager.getSecretaries()) {
-			if (sec.getUserName().equals(userName) && sec.getPassword().equals(password)) {
-				System.out.println("I am logged in as a secretary");
-				return;
-			}
-		}
-		System.out.println("Wrong username or password");
 
-	}
-
-	public static void editAppointment(Doctor doctor, Appointment appointment, Appointment newAppointment) {
-		ArrayList<Appointment> appointments = doctorToAppointmentsMap.get(doctor);
-		for (var app : appointments) {
-			if (appointment.equals(app)) {
-				app = newAppointment;
-			}
-		}
-	}
 
 	public static ArrayList<Patient> getPatients() {
 		return patients;
@@ -102,6 +143,24 @@ public class SystemManager {
 		return null;
 		
 		
+	}
+
+	public static Secretary getCurrentSecretary() {
+		return currentSecretary;
+	}
+
+	public static void setCurrentSecretary(Secretary currentSecretary) {
+		SystemManager.currentSecretary = currentSecretary;
+	}
+
+
+	public static Doctor getCurrentDoctor() {
+		return currentDoctor;
+	}
+
+
+	public static void setCurrentDoctor(Doctor currentDoctor) {
+		SystemManager.currentDoctor = currentDoctor;
 	}
 
 }
