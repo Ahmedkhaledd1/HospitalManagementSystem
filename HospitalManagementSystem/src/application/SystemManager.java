@@ -10,7 +10,7 @@ public class SystemManager {
 	private static ArrayList<Doctor> doctors = new ArrayList<Doctor>();
 	private static HashMap<Doctor, ArrayList<Patient>> doctorToPatientMap = new HashMap<Doctor, ArrayList<Patient>>();
 	private static HashMap<Doctor, ArrayList<Appointment>> doctorToAppointmentsMap = new HashMap<Doctor, ArrayList<Appointment>>();
-
+	private static Schedule schedule =new Schedule();
 	public static ArrayList<Secretary> getSecretaries() {
 		return secretaries;
 	}
