@@ -20,6 +20,19 @@ class Secretary extends Person {
     this.userName = userName;
     this.password = password;
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //main functions
 
   Patient register(String name,
       char gender,
@@ -27,12 +40,60 @@ class Secretary extends Person {
       String mobileNumber,
       int age,
       String email,
-      String martialStatus) {
+      String martialStatus,int id) {
 	  MedicalHistory medicalHistory = new MedicalHistory();
-	  Patient patient = new Patient(name, gender, address, mobileNumber, age, email, martialStatus, mobileNumber, medicalHistory);
+	  Patient patient = new Patient(name, gender, address, mobileNumber, age, email, martialStatus, id, medicalHistory);
 	  return patient;
   }
 
+  public boolean login(String userName, String password) {
+	  //SystemManager.loginSecretary(userName, password);
+	  if(this.userName.equals(userName) && this.password.equals(password))
+			return true;
+		else
+			return false;
+  }
+
+  public Appointment addApointment(String date, String reservationTime, Doctor doctor, boolean excuse) {
+    Appointment appointment = new Appointment(date, reservationTime, doctor, excuse);
+   
+    return appointment;
+    
+   // SystemManager.addAppointmentToDoctor(doctor, appointment);
+  }
+
+  public void editApointment( Appointment ap,String date, String reservationTime, Doctor doctor, boolean excuse) {
+	  
+	  ap.setDate(date);
+	  ap.setDoctor(doctor);
+	  ap.setExcuse(excuse);
+	  ap.setReservationTime(reservationTime);
+	  
+	  //SystemManager.editAppointment(doctor, appointment, newAppointment);
+
+  }
+
+  public void initiateExcuse(Schedule schedule, Doctor doc,String day) {
+	 		  
+		  schedule.getTimeSlots().get(day).remove(doc);
+		  
+	  }
+
+  
+
+  public void editSchedule(Schedule schedule,String time,String day,Doctor doc) {
+	  schedule.getTimeSlots().get(day).get(doc).remove(time);
+	  
+
+  }
+
+
+  
+  
+  
+  
+  
+  /// set and get
   public String getUserName() {
     return userName;
   }
@@ -49,33 +110,7 @@ class Secretary extends Person {
     this.password = password;
   }
 
-  public void login(String userName, String password) {
-	  SystemManager.loginSecretary(userName, password);
-  }
+  
 
-  public void addApointment(String date, String reservationTime, Doctor doctor, boolean excuse) {
-    Appointment appointment = new Appointment(date, reservationTime, doctor, excuse);
-    SystemManager.addAppointmentToDoctor(doctor, appointment);
-  }
-
-  public void editApointment(Doctor doctor, Appointment appointment, Appointment newAppointment) {
-	  SystemManager.editAppointment(doctor, appointment, newAppointment);
-
-  }
-
-  public void initiateExcuse(Schedule schedule, Doctor doctor) {
-	  //TODO
-
-  }
-
-  public void editSchedule(Schedule schedule) {
-	  //TODO
-
-  }
-
-  public void displaySchedule() {
-	  //TODO
-
-  }
 
 }

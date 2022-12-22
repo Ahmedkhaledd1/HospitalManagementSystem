@@ -2,21 +2,21 @@ package application;
 
 public class Patient extends Person {
 
-	private String id;
+	private int id;
     private MedicalHistory history;
 
     Patient(String name, char gender, String address, String mobileNumber,
-            int age, String email, String martialStatus, String id, MedicalHistory history) {
+            int age, String email, String martialStatus, int id, MedicalHistory history) {
         super(name, gender, address, mobileNumber, age, email, martialStatus);
         this.id = id;
         this.history = history;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

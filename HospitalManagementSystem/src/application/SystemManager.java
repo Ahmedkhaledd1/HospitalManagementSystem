@@ -11,6 +11,174 @@ public class SystemManager {
 	private static HashMap<Doctor, ArrayList<Patient>> doctorToPatientMap = new HashMap<Doctor, ArrayList<Patient>>();
 	private static HashMap<Doctor, ArrayList<Appointment>> doctorToAppointmentsMap = new HashMap<Doctor, ArrayList<Appointment>>();
 	private static Schedule schedule =new Schedule();
+	private static Secretary currentSecretary;
+	private static Doctor  currentDoctor;
+	private static SystemManager single_instance = null;
+	
+	
+	//single tone function
+	
+	public static SystemManager Singleton()
+    {
+        // To ensure only one instance is created
+        if (single_instance == null) {
+            single_instance = new SystemManager();
+        }
+        return single_instance;
+    }
+
+	
+	//main functions
+	
+	
+	// secretary functions 
+	public static void secretaryLogin(String userName, String password) {	
+		for (Secretary sec : SystemManager.getSecretaries()) {
+			
+			if (sec.getUserName().equals(userName)) {
+				if(sec.login(userName, password)) {
+					setCurrentSecretary(sec);
+					break;
+				}
+				
+			}
+		}
+	}
+	  
+	public void secertaryAddApointment(String date, String reservationTime,String docName){
+		
+		for (Doctor doc : SystemManager.getDoctors()) {
+			
+			if (doc.getName().equals(docName)) {
+				
+				getDoctorToAppointmentsMap(currentDoctor).add( getCurrentSecretary().addApointment(date, reservationTime, doc, false));
+				break;
+			}
+			
+			
+		}
+		
+	}
+	
+	
+	public void secertaryIntiateExcuse(String docName,String day) {
+		
+		for (Doctor doc : SystemManager.getDoctors()) {
+			if (doc.getName().equals(docName)) {
+				getCurrentSecretary().initiateExcuse(schedule, doc, day);
+			//remove doc from schedule 
+			
+			for(Appointment ele:  getDoctorToAppointmentsMap(doc)) {
+				ele.setExcuse(true);
+			  }// make excuse true
+			
+			break;
+			}
+			
+			
+		}
+	}
+	
+	public void SecertaryEditScedule(String time,String day,String docName) {
+		
+		for (Doctor doc : SystemManager.getDoctors()) {
+			if (doc.getName().equals(docName)) {
+				getCurrentSecretary().editSchedule(schedule, time, day, doc);
+			
+			// rmeove time assoiated form schedule
+				
+				for(Appointment ele:  getDoctorToAppointmentsMap(doc)) {
+					if(ele.getDate().equals(day)&&ele.getReservationTime().equals(time))ele.setExcuse(true);
+				  }// make excuse true of spacfied time 
+				
+			
+			break;
+			}
+			
+			
+		}
+		
+	}
+	
+	public static void secertaryEditApointment(String doctorName, String resTime,String date,  Doctor doctor, boolean excuse) {
+		
+		for (Doctor doc : SystemManager.getDoctors()) {
+			
+			if (doc.getName().equals(doctorName)) {
+		for (Appointment element : getDoctorToAppointmentsMap(doc)) {
+			if(element.getReservationTime().equals(resTime))
+				getCurrentSecretary().editApointment(element, date, resTime, doc, excuse);
+			break;
+		}
+			}
+		
+		}
+}
+	
+    public ArrayList<String> DisplaySchedule(String doctorName,String day) {
+		
+		for(Doctor doc:SystemManager.getDoctors()) {
+			if(doc.getName().equals(doctorName))
+				return schedule.getTimeSlots().get(day).get(doc);
+				
+			
+		}
+		return null;
+		
+		
+	}
+    
+    
+	//// Doctors Functions 
+	
+	public  void doctorLogin(String userName, String password) {	
+		for (Doctor  doc : SystemManager.getDoctors()) {
+			
+			if (doc.getUserName().equals(userName)) {
+				if(doc.login(userName, password)) {
+					setCurrentDoctor(doc);
+					break;
+				}
+				
+			}
+		}
+	}
+	
+	
+ public MedicalHistory doctorGetPatientMedicalHistory(String docName,String patName) {
+	 
+	 for (Doctor  doc : SystemManager.getDoctors()) {
+			
+			if (doc.getUserName().equals(docName)) {
+				for (Patient pat : getPatients()) {
+					if(pat.getName().equals(patName)) {
+						return getCurrentDoctor().getPatientMedicalHistory(pat);
+					}
+				}
+			}
+		}
+	 return null;
+ }
+ 
+ public void doctorEditPatientMedicalHistory(String docName,String patName,String diagnose,String treatment) {
+	 for (Patient pat : getPatients()) {
+			if(pat.getName().equals(patName)) {
+				 if( doctorGetPatientMedicalHistory(docName, patName)!=null) {
+					 getCurrentDoctor().editPatientMedicalHistory(diagnose, treatment, pat);
+				 }
+			}
+			break;
+		}
+	
+ }
+
+	
+	
+	//// set and get
+	
+	
+	
+	
 	public static ArrayList<Secretary> getSecretaries() {
 		return secretaries;
 	}
@@ -19,25 +187,7 @@ public class SystemManager {
 		SystemManager.secretaries = secretaries;
 	}
 
-	public static void loginSecretary(String userName, String password) {
-		for (Secretary sec : SystemManager.getSecretaries()) {
-			if (sec.getUserName().equals(userName) && sec.getPassword().equals(password)) {
-				System.out.println("I am logged in as a secretary");
-				return;
-			}
-		}
-		System.out.println("Wrong username or password");
 
-	}
-
-	public static void editAppointment(Doctor doctor, Appointment appointment, Appointment newAppointment) {
-		ArrayList<Appointment> appointments = doctorToAppointmentsMap.get(doctor);
-		for (var app : appointments) {
-			if (appointment.equals(app)) {
-				app = newAppointment;
-			}
-		}
-	}
 
 	public static ArrayList<Patient> getPatients() {
 		return patients;
@@ -90,6 +240,25 @@ public class SystemManager {
 
 	public static void addAppointmentToDoctor(Doctor doctor, Appointment appointment) {
 		doctorToAppointmentsMap.get(doctor).add(appointment);
+	}
+	
+	
+	public static Secretary getCurrentSecretary() {
+		return currentSecretary;
+	}
+
+	public static void setCurrentSecretary(Secretary currentSecretary) {
+		SystemManager.currentSecretary = currentSecretary;
+	}
+
+
+	public static Doctor getCurrentDoctor() {
+		return currentDoctor;
+	}
+
+
+	public static void setCurrentDoctor(Doctor currentDoctor) {
+		SystemManager.currentDoctor = currentDoctor;
 	}
 
 }
