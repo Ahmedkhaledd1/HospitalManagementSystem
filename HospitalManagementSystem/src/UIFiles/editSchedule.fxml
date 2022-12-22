@@ -11,7 +11,7 @@
       <Label layoutX="69.0" layoutY="148.0" prefHeight="26.0" prefWidth="58.0" text="Doctor :" />
       <Label layoutX="69.0" layoutY="194.0" prefHeight="26.0" prefWidth="58.0" text="Date :" />
       <Label layoutX="69.0" layoutY="251.0" prefHeight="26.0" prefWidth="58.0" text="Time :" />
-      <Button fx:id="confirmbtn" layoutX="180.0" layoutY="340.0" mnemonicParsing="false" onAction="#confirmFunction" prefHeight="43.0" prefWidth="87.0" style="-fx-background-color: #0598ff;" text="Confirm" textFill="#fcf9f9">
+      <Button fx:id="confirmbtn" layoutX="151.0" layoutY="339.0" mnemonicParsing="false" onAction="#confirmFunction" prefHeight="43.0" prefWidth="87.0" style="-fx-background-color: #0598ff;" text="Confirm" textFill="#fcf9f9">
          <font>
             <Font size="14.0" />
          </font>
@@ -19,5 +19,6 @@
       <ComboBox fx:id="doctorCombBox" layoutX="149.0" layoutY="149.0" onAction="#doctorListFunc" prefHeight="26.0" prefWidth="162.0" />
       <ComboBox fx:id="dateCombBox" layoutX="149.0" layoutY="195.0" onAction="#dateListFunc" prefHeight="26.0" prefWidth="162.0" />
       <ComboBox fx:id="timeCombBox" layoutX="149.0" layoutY="252.0" onAction="#timeListFunc" prefHeight="26.0" prefWidth="162.0" />
+      <Label fx:id="errorLabel" layoutX="63.0" layoutY="432.0" prefHeight="18.0" prefWidth="256.0" text="errrrrrrrrror" />
    </children>
 </AnchorPane>
