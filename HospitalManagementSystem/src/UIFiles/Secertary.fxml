@@ -10,7 +10,7 @@
       <AnchorPane prefHeight="500.0" prefWidth="310.0" style="-fx-background-color: #0598ff;">
          <children>
             <Text fill="#fffefe" layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Operation" wrappingWidth="142.13671875" />
-            <ComboBox fx:id="secertaryOPMenue" layoutX="118.0" layoutY="20.0" prefHeight="26.0" prefWidth="191.0" />
+            <ComboBox fx:id="SecertaryOPMenue" layoutX="118.0" layoutY="20.0" prefHeight="26.0" prefWidth="191.0" />
             <Button layoutX="8.0" layoutY="450.0" mnemonicParsing="false" onAction="#signOutFunc" prefHeight="36.0" prefWidth="153.0" text="Sign Out" />
          </children>
       </AnchorPane>
