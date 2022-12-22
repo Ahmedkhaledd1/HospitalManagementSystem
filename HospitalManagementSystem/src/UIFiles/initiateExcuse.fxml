@@ -4,24 +4,14 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <AnchorPane prefHeight="500.0" prefWidth="310.0" style="-fx-background-color: #0598ff;">
-            <children>
-                <Text fill="#fffefe" layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Operation" wrappingWidth="142.13671875" />
-                <ComboBox fx:id="secertaryOPMenue" layoutX="118.0" layoutY="20.0" prefHeight="26.0" prefWidth="191.0" />
-                <Button layoutX="8.0" layoutY="450.0" mnemonicParsing="false" onAction="#signOutFunc" prefHeight="36.0" prefWidth="153.0" text="Sign Out" />
-            </children>
-        </AnchorPane>
-        <AnchorPane fx:id="operationScreenShower" layoutX="310.0" prefHeight="500.0" prefWidth="390.0">
-         <children>
-            <ComboBox fx:id="docExcuseMenu" layoutX="183.0" layoutY="156.0" onAction="#doctorExcuseSelect" prefWidth="150.0" />
-            <Label fx:id="doc_excuselbl" layoutX="104.0" layoutY="160.0" text="Doctor:" />
-            <Label fx:id="day_excuselbl" layoutX="108.0" layoutY="233.0" text="Day:" />
-            <ComboBox fx:id="daysMenu" layoutX="183.0" layoutY="229.0" onAction="#dayExcuseSelect" prefWidth="150.0" />
-            <Button fx:id="excuse_confirmbtn" layoutX="169.0" layoutY="314.0" mnemonicParsing="false" onAction="#excuseConfirmFunc" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE" />
-         </children></AnchorPane>
-    </children>
+<AnchorPane fx:id="operationScreenShower" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ComboBox fx:id="docExcuseMenu" layoutX="183.0" layoutY="156.0" onAction="#doctorExcuseSelect" prefWidth="150.0" />
+      <Label fx:id="doc_excuselbl" layoutX="104.0" layoutY="160.0" text="Doctor:" />
+      <Label fx:id="day_excuselbl" layoutX="108.0" layoutY="233.0" text="Day:" />
+      <ComboBox fx:id="daysMenu" layoutX="183.0" layoutY="229.0" onAction="#dayExcuseSelect" prefWidth="150.0" />
+      <Button fx:id="excuse_confirmbtn" layoutX="169.0" layoutY="314.0" mnemonicParsing="false" onAction="#excuseConfirmFunc" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE" />
+      <Label fx:id="errorLabel" layoutX="73.0" layoutY="442.0" prefHeight="18.0" prefWidth="256.0" text="errrrrrrrrror" />
+   </children>
 </AnchorPane>

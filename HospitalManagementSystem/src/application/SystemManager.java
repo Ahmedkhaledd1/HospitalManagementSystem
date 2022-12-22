@@ -3,6 +3,8 @@ package application;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+
 public class SystemManager {
 
 	private static ArrayList<Secretary> secretaries = new ArrayList<Secretary>();
@@ -51,7 +53,7 @@ public class SystemManager {
 			
 			if (doc.getName().equals(docName)) {
 				
-				getDoctorToAppointmentsMap(currentDoctor).add( getCurrentSecretary().addApointment(date, reservationTime, doc, false));
+				getDoctorToAppointmentsMap(doc).add( getCurrentSecretary().addApointment(date, reservationTime, doc, false));
 				break;
 			}
 			
@@ -100,13 +102,13 @@ public class SystemManager {
 		
 	}
 	
-	public static void secertaryEditApointment(String doctorName, String resTime,String date,  Doctor doctor, boolean excuse) {
+	public static void secertaryEditApointment(String doctorName, String oldResTime,String oldDate,String resTime,String date, boolean excuse) {
 		
 		for (Doctor doc : SystemManager.getDoctors()) {
 			
 			if (doc.getName().equals(doctorName)) {
 		for (Appointment element : getDoctorToAppointmentsMap(doc)) {
-			if(element.getReservationTime().equals(resTime))
+			if(element.getReservationTime().equals(oldResTime)&&element.getDate().equals(oldDate))
 				getCurrentSecretary().editApointment(element, date, resTime, doc, excuse);
 			break;
 		}
@@ -145,25 +147,19 @@ public class SystemManager {
 	}
 	
 	
- public MedicalHistory doctorGetPatientMedicalHistory(String docName,String patName) {
-	 
-	 for (Doctor  doc : SystemManager.getDoctors()) {
-			
-			if (doc.getUserName().equals(docName)) {
-				for (Patient pat : getPatients()) {
-					if(pat.getName().equals(patName)) {
-						return getCurrentDoctor().getPatientMedicalHistory(pat);
-					}
-				}
+ public MedicalHistory doctorGetPatientMedicalHistory(String patName) {
+	 for (Patient pat : getPatients()) {
+		if(pat.getName().equals(patName)) {
+			return getCurrentDoctor().getPatientMedicalHistory(pat);
 			}
 		}
 	 return null;
  }
  
- public void doctorEditPatientMedicalHistory(String docName,String patName,String diagnose,String treatment) {
+ public void doctorEditPatientMedicalHistory(String patName,String diagnose,String treatment) {
 	 for (Patient pat : getPatients()) {
 			if(pat.getName().equals(patName)) {
-				 if( doctorGetPatientMedicalHistory(docName, patName)!=null) {
+				 if( doctorGetPatientMedicalHistory( patName)!=null) {
 					 getCurrentDoctor().editPatientMedicalHistory(diagnose, treatment, pat);
 				 }
 			}
