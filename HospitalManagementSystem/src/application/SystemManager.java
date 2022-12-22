@@ -31,7 +31,60 @@ public class SystemManager {
 		}
 	}
 	  
+	public void secertaryAddApointment(String date, String reservationTime,String docName){
+		
+		for (Doctor doc : SystemManager.getDoctors()) {
+			
+			if (doc.getName().equals(docName)) {
+				
+				getDoctorToAppointmentsMap(currentDoctor).add( getCurrentSecretary().addApointment(date, reservationTime, doc, false));
+				break;
+			}
+			
+			
+		}
+		
+	}
 	
+	
+	public void secertaryIntiateExcuse(String docName,String day) {
+		
+		for (Doctor doc : SystemManager.getDoctors()) {
+			if (doc.getName().equals(docName)) {
+				getCurrentSecretary().initiateExcuse(schedule, doc, day);
+			//remove doc from schedule 
+			
+			for(Appointment ele:  getDoctorToAppointmentsMap(doc)) {
+				ele.setExcuse(true);
+			  }// make excuse true
+			
+			break;
+			}
+			
+			
+		}
+	}
+	
+	public void SecertaryEditScedule(String time,String day,String docName) {
+		
+		for (Doctor doc : SystemManager.getDoctors()) {
+			if (doc.getName().equals(docName)) {
+				getCurrentSecretary().editSchedule(schedule, time, day, doc);
+			
+			// rmeove time assoiated form schedule
+				
+				for(Appointment ele:  getDoctorToAppointmentsMap(doc)) {
+					if(ele.getDate().equals(day)&&ele.getReservationTime().equals(time))ele.setExcuse(true);
+				  }// make excuse true of spacfied time 
+				
+			
+			break;
+			}
+			
+			
+		}
+		
+	}
 	
 	public static void secertaryEditApointment(String doctorName, String resTime,String date,  Doctor doctor, boolean excuse) {
 		
@@ -64,7 +117,7 @@ public class SystemManager {
     
 	//// Doctors Functions 
 	
-	public static void doctorLogin(String userName, String password) {	
+	public  void doctorLogin(String userName, String password) {	
 		for (Doctor  doc : SystemManager.getDoctors()) {
 			
 			if (doc.getUserName().equals(userName)) {
@@ -78,7 +131,32 @@ public class SystemManager {
 	}
 	
 	
+ public MedicalHistory doctorGetPatientMedicalHistory(String docName,String patName) {
+	 
+	 for (Doctor  doc : SystemManager.getDoctors()) {
+			
+			if (doc.getUserName().equals(docName)) {
+				for (Patient pat : getPatients()) {
+					if(pat.getName().equals(patName)) {
+						return getCurrentDoctor().getPatientMedicalHistory(pat);
+					}
+				}
+			}
+		}
+	 return null;
+ }
  
+ public void doctorEditPatientMedicalHistory(String docName,String patName,String diagnose,String treatment) {
+	 for (Patient pat : getPatients()) {
+			if(pat.getName().equals(patName)) {
+				 if( doctorGetPatientMedicalHistory(docName, patName)!=null) {
+					 getCurrentDoctor().editPatientMedicalHistory(diagnose, treatment, pat);
+				 }
+			}
+			break;
+		}
+	
+ }
 
 	
 	
