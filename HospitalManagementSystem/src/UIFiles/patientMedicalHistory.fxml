@@ -3,21 +3,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="operationScreenShower" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="500.0" prefWidth="310.0" style="-fx-background-color: #0598ff;">
-         <children>
-            <Text fill="#fffefe" layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Operation" wrappingWidth="142.13671875" />
-            <ComboBox fx:id="doctorOPMenue" layoutX="118.0" layoutY="20.0" prefHeight="26.0" prefWidth="191.0" />
-            <Button layoutX="8.0" layoutY="450.0" mnemonicParsing="false" onAction="#signOutFunc" prefHeight="36.0" prefWidth="153.0" text="Sign Out" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="operationScreenShower" layoutX="310.0" prefHeight="500.0" prefWidth="390.0">
-         <children>
-            <Label fx:id="medicalHistoryLabel" layoutX="32.0" layoutY="26.0" prefHeight="446.0" prefWidth="324.0" style="-fx-background-color: transparent;" />
-         </children></AnchorPane>
+      <ComboBox fx:id="patientList" layoutX="178.0" layoutY="48.0" onAction="#patientSelectSchedFunc" prefWidth="150.0" />
+      <Label layoutX="78.0" layoutY="52.0" text="Patient" />
+      <Button fx:id="displaybtn" layoutX="168.0" layoutY="141.0" mnemonicParsing="false" onAction="#displayMedicalPatientHistoryFunc" style="-fx-background-color: #0598ff;" text="Display" textFill="WHITE" />
+      <ListView fx:id="medicalHistoryList" layoutX="52.0" layoutY="221.0" prefHeight="208.0" prefWidth="281.0" style="-fx-border-color: #0598ff;" />
+      <Label fx:id="displaySuccesslbl" layoutX="165.0" layoutY="449.0" />
    </children>
 </AnchorPane>
