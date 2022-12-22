@@ -13,6 +13,20 @@ public class SystemManager {
 	private static Schedule schedule =new Schedule();
 	private static Secretary currentSecretary;
 	private static Doctor  currentDoctor;
+	private static SystemManager single_instance = null;
+	
+	
+	//single tone function
+	
+	public static SystemManager Singleton()
+    {
+        // To ensure only one instance is created
+        if (single_instance == null) {
+            single_instance = new SystemManager();
+        }
+        return single_instance;
+    }
+
 	
 	//main functions
 	
