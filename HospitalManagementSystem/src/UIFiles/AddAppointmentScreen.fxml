@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="operationScreenShower" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ComboBox fx:id="docMenu" layoutX="183.0" layoutY="115.0" onAction="#doctorNamesSelect" prefHeight="26.0" prefWidth="175.0" />
+      <Label fx:id="doc_excuselbl" layoutX="77.0" layoutY="159.0" prefHeight="18.0" prefWidth="39.0" text="Date:" />
+      <Label fx:id="day_excuselbl" layoutX="69.0" layoutY="203.0" text="Reservation Time:" />
+      <ComboBox fx:id="timesMenu" layoutX="183.0" layoutY="199.0" onAction="#timesMenuSelect" prefWidth="150.0" />
+      <Button layoutX="169.0" layoutY="314.0" mnemonicParsing="false" onAction="#AddAppointFunc" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="Add" textFill="WHITE" />
+      <Label fx:id="doc_excuselbl1" layoutX="77.0" layoutY="119.0" text="Doctor:" />
+      <Label fx:id="errorLabel" layoutX="81.0" layoutY="272.0" prefHeight="18.0" prefWidth="250.0" text="Errror massege &quot;rmove text dont forget" />
+      <ComboBox fx:id="dateMenu" layoutX="183.0" layoutY="155.0" onAction="#dateMenuSelect" prefHeight="26.0" prefWidth="175.0" />
+   </children>
+</AnchorPane>
