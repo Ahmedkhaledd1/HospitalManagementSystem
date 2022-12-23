@@ -1,7 +1,7 @@
 package UIControllers;
 
 import javafx.fxml.FXML;
-
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 import java.net.URL;
@@ -18,7 +18,7 @@ import javafx.scene.control.ComboBox;
 
 import javafx.scene.layout.AnchorPane;
 
-public class editScheduleController {
+public class editScheduleController implements Initializable {
 	@FXML
 	private AnchorPane operationScreenShower;
 	@FXML

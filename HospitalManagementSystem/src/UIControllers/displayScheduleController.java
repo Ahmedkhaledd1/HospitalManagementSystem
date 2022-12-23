@@ -4,7 +4,7 @@ package UIControllers;
 import application.SystemManager;
 
 import javafx.fxml.FXML;
-
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 import javafx.event.ActionEvent;
@@ -17,7 +17,7 @@ import javafx.scene.control.ComboBox;
 
 import javafx.scene.layout.AnchorPane;
 
-public class displayScheduleController {
+public class displayScheduleController  {
 	SystemManager sys = SystemManager.Singleton();
 
 	@FXML

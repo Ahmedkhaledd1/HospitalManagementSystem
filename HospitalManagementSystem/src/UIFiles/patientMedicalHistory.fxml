@@ -13,5 +13,6 @@
       <Button fx:id="displaybtn" layoutX="168.0" layoutY="141.0" mnemonicParsing="false" onAction="#displayMedicalPatientHistoryFunc" style="-fx-background-color: #0598ff;" text="Display" textFill="WHITE" />
       <ListView fx:id="medicalHistoryList" layoutX="52.0" layoutY="221.0" prefHeight="208.0" prefWidth="281.0" style="-fx-border-color: #0598ff;" />
       <Label fx:id="displaySuccesslbl" layoutX="165.0" layoutY="449.0" />
+      <Label fx:id="errorlabel" layoutX="117.0" layoutY="440.0" prefHeight="18.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
