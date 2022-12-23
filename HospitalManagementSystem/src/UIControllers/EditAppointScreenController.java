@@ -1,7 +1,7 @@
 package UIControllers;
 
 import javafx.fxml.FXML;
-
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 import java.net.URL;
@@ -19,7 +19,7 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.control.CheckBox;
 
-public class EditAppointScreenController {
+public class EditAppointScreenController implements Initializable {
 	@FXML
 	private AnchorPane operationScreenShower1;
 	@FXML
