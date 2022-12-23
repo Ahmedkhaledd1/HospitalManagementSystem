@@ -21,6 +21,6 @@
       <Label fx:id="newDate" layoutX="47.0" layoutY="283.0" prefHeight="18.0" prefWidth="82.0" text="New Date:" visible="false" />
       <ComboBox fx:id="newDateMenu" layoutX="172.0" layoutY="279.0" onAction="#dateMenuSelect" prefHeight="26.0" prefWidth="175.0" visible="false" />
       <Label fx:id="newResTime" layoutX="46.0" layoutY="321.0" text="New Reservation Time:" visible="false" />
-      <ComboBox fx:id="newTimesMinue" layoutX="173.0" layoutY="317.0" onAction="#timesMenuSelect" prefWidth="150.0" visible="false" />
+      <ComboBox fx:id="newTimesMinue" layoutX="173.0" layoutY="317.0" onAction="#newTimesMenuSelect" prefWidth="150.0" visible="false" />
    </children>
 </AnchorPane>
