@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +21,9 @@ public class SecretaryController implements Initializable {
 
     @FXML
     void signOutFunc(ActionEvent event)throws IOException {
-    	operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("LoginView.fxml")));
+    	//operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("LoginView.fxml")));
+    	 Main m = new Main();
+ 		m.changeScene("LoginView.fxml");
 
     }
     void seceratryOpSelected(ActionEvent event)throws IOException {

@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.text.View;
 
+import application.Main;
+
 //import UIFiles;
 
 import javafx.collections.FXCollections;
@@ -28,7 +30,9 @@ public class DoctorController implements Initializable {
 
 	    @FXML
 	    void signOutFunc(ActionEvent event) throws IOException {
-    		operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("LoginView.fxml")));
+    		//operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("LoginView.fxml")));
+    		 Main m = new Main();
+    	 		m.changeScene("LoginView.fxml");
 	    	
 
 	    }

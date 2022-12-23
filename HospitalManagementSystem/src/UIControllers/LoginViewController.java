@@ -1,7 +1,9 @@
 package UIControllers;
 
 import java.awt.Label;
+import java.io.IOException;
 
+import application.Main;
 //import UIFiles.*;
 import application.SystemManager;
 
@@ -23,7 +25,8 @@ public class LoginViewController {
     String pass;
 
     @FXML
-    void doctorLoginFunc(ActionEvent event) {
+    void doctorLoginFunc(ActionEvent event) throws IOException {
+    	
 
         userN = userNameTxt.getText();
         pass = passwordTxt.getText();
@@ -35,6 +38,8 @@ public class LoginViewController {
         {
             statusLoginlbl.setText("Login Successfull");
             sys.doctorLogin(userN,pass);
+            Main m = new Main();
+    		m.changeScene("Doctor.fxml");
         }
 
 
@@ -42,7 +47,7 @@ public class LoginViewController {
     }
 
     @FXML
-    void secretaryLoginFunc(ActionEvent event) {
+    void secretaryLoginFunc(ActionEvent event) throws IOException {
 
         userN = userNameTxt.getText();
         pass = passwordTxt.getText();
@@ -54,6 +59,9 @@ public class LoginViewController {
         {
             statusLoginlbl.setText("Login Successfull");
             sys.secretaryLogin(userN,pass);
+            
+            Main m = new Main();
+    		m.changeScene("Secertary.fxml");
         }
 
     }
