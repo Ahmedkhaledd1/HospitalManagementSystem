@@ -167,9 +167,35 @@ public class SystemManager {
 		}
 	
  }
+ 
+ 
+ 
+ //  functions to fill the combobox
+ 
+ 
+ public ArrayList<String> docNamesList(ArrayList<Doctor> docs){
+	 
+	 ArrayList<String> docNameStrings=new ArrayList<String>();
+	 
+	 for(Doctor doc:docs) {
+		 docNameStrings.add(doc.getName());
+	 }
+	 return docNameStrings ;
+	 
+ }
+ 
+public ArrayList<String> patNamesList(ArrayList<Patient> patss){
+	 
+	 ArrayList<String> patNameStrings=new ArrayList<String>();
+	 
+	 for(Patient pat:patss) {
+		 patNameStrings.add(pat.getName());
+	 }
+	 return patNameStrings ;
+	 
+ }
 
-	
-	
+
 	//// set and get
 	
 	
