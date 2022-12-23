@@ -7,14 +7,14 @@ import java.util.HashMap;
 
 public class SystemManager {
 
-	private static ArrayList<Secretary> secretaries = new ArrayList<Secretary>();
-	private static ArrayList<Patient> patients = new ArrayList<Patient>();
-	private static ArrayList<Doctor> doctors = new ArrayList<Doctor>();
-	private static HashMap<Doctor, ArrayList<Patient>> doctorToPatientMap = new HashMap<Doctor, ArrayList<Patient>>();
-	private static HashMap<Doctor, ArrayList<Appointment>> doctorToAppointmentsMap = new HashMap<Doctor, ArrayList<Appointment>>();
-	private static Schedule schedule =new Schedule();
-	private static Secretary currentSecretary;
-	private static Doctor  currentDoctor;
+	private  ArrayList<Secretary> secretaries = new ArrayList<Secretary>();
+	private  ArrayList<Patient> patients = new ArrayList<Patient>();
+	private  ArrayList<Doctor> doctors = new ArrayList<Doctor>();
+	private  HashMap<Doctor, ArrayList<Patient>> doctorToPatientMap = new HashMap<Doctor, ArrayList<Patient>>();
+	private  HashMap<Doctor, ArrayList<Appointment>> doctorToAppointmentsMap = new HashMap<Doctor, ArrayList<Appointment>>();
+	private  Schedule schedule =new Schedule();
+	private  Secretary currentSecretary;
+	private  Doctor  currentDoctor;
 	private static SystemManager single_instance = null;
 	
 	
@@ -34,8 +34,8 @@ public class SystemManager {
 	
 	
 	// secretary functions 
-	public static void secretaryLogin(String userName, String password) {	
-		for (Secretary sec : SystemManager.getSecretaries()) {
+	public  void secretaryLogin(String userName, String password) {	
+		for (Secretary sec : getSecretaries()) {
 			
 			if (sec.getUserName().equals(userName)) {
 				if(sec.login(userName, password)) {
@@ -49,7 +49,7 @@ public class SystemManager {
 	  
 	public void secertaryAddApointment(String date, String reservationTime,String docName){
 		
-		for (Doctor doc : SystemManager.getDoctors()) {
+		for (Doctor doc : getDoctors()) {
 			
 			if (doc.getName().equals(docName)) {
 				
@@ -65,7 +65,7 @@ public class SystemManager {
 	
 	public void secertaryIntiateExcuse(String docName,String day) {
 		
-		for (Doctor doc : SystemManager.getDoctors()) {
+		for (Doctor doc : getDoctors()) {
 			if (doc.getName().equals(docName)) {
 				getCurrentSecretary().initiateExcuse(schedule, doc, day);
 			//remove doc from schedule 
@@ -83,7 +83,7 @@ public class SystemManager {
 	
 	public void SecertaryEditScedule(String time,String day,String docName) {
 		
-		for (Doctor doc : SystemManager.getDoctors()) {
+		for (Doctor doc : getDoctors()) {
 			if (doc.getName().equals(docName)) {
 				getCurrentSecretary().editSchedule(schedule, time, day, doc);
 			
@@ -102,9 +102,9 @@ public class SystemManager {
 		
 	}
 	
-	public static void secertaryEditApointment(String doctorName, String oldResTime,String oldDate,String resTime,String date, boolean excuse) {
+	public  void secertaryEditApointment(String doctorName, String oldResTime,String oldDate,String resTime,String date, boolean excuse) {
 		
-		for (Doctor doc : SystemManager.getDoctors()) {
+		for (Doctor doc :getDoctors()) {
 			
 			if (doc.getName().equals(doctorName)) {
 		for (Appointment element : getDoctorToAppointmentsMap(doc)) {
@@ -119,7 +119,7 @@ public class SystemManager {
 	
     public ArrayList<String> DisplaySchedule(String doctorName,String day) {
 		
-		for(Doctor doc:SystemManager.getDoctors()) {
+		for(Doctor doc:getDoctors()) {
 			if(doc.getName().equals(doctorName))
 				return schedule.getTimeSlots().get(day).get(doc);
 				
@@ -134,7 +134,7 @@ public class SystemManager {
 	//// Doctors Functions 
 	
 	public  void doctorLogin(String userName, String password) {	
-		for (Doctor  doc : SystemManager.getDoctors()) {
+		for (Doctor  doc : getDoctors()) {
 			
 			if (doc.getUserName().equals(userName)) {
 				if(doc.login(userName, password)) {
@@ -175,45 +175,48 @@ public class SystemManager {
 	
 	
 	
-	public static ArrayList<Secretary> getSecretaries() {
+	public  ArrayList<Secretary> getSecretaries() {
 		return secretaries;
 	}
 
-	public static void setSecretaries(ArrayList<Secretary> secretaries) {
-		SystemManager.secretaries = secretaries;
+	public  void setSecretaries(ArrayList<Secretary> secretaries) {
+		
+		this.secretaries = secretaries;
 	}
 
 
 
-	public static ArrayList<Patient> getPatients() {
+	public  ArrayList<Patient> getPatients() {
 		return patients;
 	}
 
-	public static void setPatients(ArrayList<Patient> patients) {
-		SystemManager.patients = patients;
+	public  void setPatients(ArrayList<Patient> patients) {
+		
+		
+		this.patients = patients;
 	}
 
-	public static ArrayList<Doctor> getDoctors() {
+	public  ArrayList<Doctor> getDoctors() {
 		return doctors;
 	}
 
-	public static void setDoctors(ArrayList<Doctor> doctors) {
-		SystemManager.doctors = doctors;
+	public  void setDoctors(ArrayList<Doctor> doctors) {
+		this.doctors=doctors;
 	}
 
-	public static ArrayList<Patient> getDoctorToPatientMap(Doctor d) {
+	public  ArrayList<Patient> getDoctorToPatientMap(Doctor d) {
 		return doctorToPatientMap.get(d);
 	}
 
-	public static void setDoctorToPatientMap(Doctor d, ArrayList<Patient> pp) {
+	public  void setDoctorToPatientMap(Doctor d, ArrayList<Patient> pp) {
 		doctorToPatientMap.put(d, pp);
 	}
 
-	public static ArrayList<Appointment> getDoctorToAppointmentsMap(Doctor d) {
+	public  ArrayList<Appointment> getDoctorToAppointmentsMap(Doctor d) {
 		return doctorToAppointmentsMap.get(d);
 	}
 
-	public static void setDoctorToAppointmentsMap(Doctor d, ArrayList<Appointment> ap) {
+	public  void setDoctorToAppointmentsMap(Doctor d, ArrayList<Appointment> ap) {
 		doctorToAppointmentsMap.put(d, ap);
 	}
 
@@ -225,36 +228,36 @@ public class SystemManager {
 		doctors.add(doctor);
 	}
 
-	public static ArrayList<Patient> getPatientsOfADoctor(Doctor doctor) {
+	public  ArrayList<Patient> getPatientsOfADoctor(Doctor doctor) {
 		return doctorToPatientMap.get(doctor);
 	}
 
 
-	public static void addPatientToDoctor(Doctor doctor, Patient patient) {
+	public  void addPatientToDoctor(Doctor doctor, Patient patient) {
 		doctorToPatientMap.get(doctor).add(patient);
 	}
 
-	public static void addAppointmentToDoctor(Doctor doctor, Appointment appointment) {
+	public  void addAppointmentToDoctor(Doctor doctor, Appointment appointment) {
 		doctorToAppointmentsMap.get(doctor).add(appointment);
 	}
 	
 	
-	public static Secretary getCurrentSecretary() {
+	public  Secretary getCurrentSecretary() {
 		return currentSecretary;
 	}
 
-	public static void setCurrentSecretary(Secretary currentSecretary) {
-		SystemManager.currentSecretary = currentSecretary;
+	public  void setCurrentSecretary(Secretary currentSecretary) {
+		this.currentSecretary = currentSecretary;
 	}
 
 
-	public static Doctor getCurrentDoctor() {
+	public  Doctor getCurrentDoctor() {
 		return currentDoctor;
 	}
 
 
-	public static void setCurrentDoctor(Doctor currentDoctor) {
-		SystemManager.currentDoctor = currentDoctor;
+	public void setCurrentDoctor(Doctor currentDoctor) {
+		this.currentDoctor = currentDoctor;
 	}
 
 }

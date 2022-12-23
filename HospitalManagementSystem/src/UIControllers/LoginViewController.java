@@ -1,11 +1,14 @@
 package UIControllers;
 
-import UIFiles.*;
+import java.awt.Label;
+
+//import UIFiles.*;
 import application.SystemManager;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 public class LoginViewController {
     SystemManager sys = SystemManager.Singleton();
