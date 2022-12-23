@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="operationScreenShower" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="operationScreenShower" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIControllers.editScheduleController">
    <children>
       <Label layoutX="69.0" layoutY="148.0" prefHeight="26.0" prefWidth="58.0" text="Doctor :" />
       <Label layoutX="69.0" layoutY="194.0" prefHeight="26.0" prefWidth="58.0" text="Date :" />
