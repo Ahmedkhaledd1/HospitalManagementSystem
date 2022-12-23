@@ -6,7 +6,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="operationScreenShower" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="operationScreenShower" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIControllers.patientMedicalHistoryController">
    <children>
       <ComboBox fx:id="patientList" layoutX="178.0" layoutY="48.0" onAction="#patientSelectSchedFunc" prefWidth="150.0" />
       <Label layoutX="78.0" layoutY="52.0" text="Patient" />
