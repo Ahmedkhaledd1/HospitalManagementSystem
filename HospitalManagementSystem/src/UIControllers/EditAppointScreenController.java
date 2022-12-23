@@ -117,6 +117,7 @@ public class EditAppointScreenController implements Initializable {
 			errorLabel1.setText("please fill doctor and date boxes");
 		}
 	}
+	@Override
 public void initialize(URL url,ResourceBundle rb) {
 			docMenu.setItems(FXCollections.observableArrayList(sys.docNamesList(sys.getDoctors())));
 			dateMenu.setItems(FXCollections.observableArrayList("Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"));
