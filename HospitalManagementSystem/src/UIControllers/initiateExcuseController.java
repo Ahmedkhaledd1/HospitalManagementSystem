@@ -1,12 +1,15 @@
 package UIControllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 //import UIFiles.*;
 import application.SystemManager;
 
 import javafx.fxml.FXML;
-
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
@@ -15,7 +18,7 @@ import javafx.scene.control.ComboBox;
 
 import javafx.scene.layout.AnchorPane;
 
-public class initiateExcuseController {
+public class initiateExcuseController implements Initializable {
 	SystemManager sys = SystemManager.Singleton();
 
 	@FXML
@@ -66,4 +69,14 @@ public class initiateExcuseController {
 			sys.secertaryIntiateExcuse(doc1,day1);
 		}
 	}
+	
+public void initialize(URL url,ResourceBundle rb) {
+			
+			docExcuseMenu.setItems(FXCollections.observableArrayList(sys.docNamesList(sys.getDoctors())));
+			daysMenu.setItems(FXCollections.observableArrayList("Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"));
+			
+			
+			
+		}
+	
 }

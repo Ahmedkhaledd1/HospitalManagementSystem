@@ -27,7 +27,9 @@ public class DoctorController implements Initializable {
 ;
 
 	    @FXML
-	    void signOutFunc(ActionEvent event) {
+	    void signOutFunc(ActionEvent event) throws IOException {
+    		operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("LoginView.fxml")));
+	    	
 
 	    }
 	    @FXML
