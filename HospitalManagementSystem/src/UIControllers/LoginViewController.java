@@ -3,7 +3,7 @@ package UIControllers;
 import java.awt.Label;
 import java.io.IOException;
 
-import application.Main;
+import UIFiles.Main;
 //import UIFiles.*;
 import application.SystemManager;
 

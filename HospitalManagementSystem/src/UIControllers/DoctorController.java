@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.text.View;
 
-import application.Main;
+
 
 //import UIFiles;
 
@@ -18,7 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-
+import UIFiles.Main;
 public class DoctorController implements Initializable {
 	
 	 @FXML

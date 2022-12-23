@@ -1,4 +1,4 @@
-package application;
+package UIFiles;
 	
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			mainStage = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("UIFiles.LoginView.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
 			primaryStage.setResizable(false);
 			primaryStage.setScene(new Scene(root,688,488));
 			primaryStage.setTitle("Hospital Management System");
