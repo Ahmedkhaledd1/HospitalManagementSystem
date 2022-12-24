@@ -1,10 +1,7 @@
-package UIControllers;
+package application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-//import UIFiles.*;
-import application.SystemManager;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -67,15 +64,12 @@ public class displayScheduleController implements Initializable {
 		{
 			displaySuccesslbl.setText("Choice Successfull");
 
-			//ArrayList<String> scheduleCopy = new ArrayList<String>(); //make a new ArrayList to copy the schedule returned
-			//Collections.copy(scheduleCopy,sys.DisplaySchedule(doc1,day1)); //copy what is returned from DisplaySchedule to scheduleCopy
-			//for(String str : scheduleCopy)
-			//{
-			//}
-			//simpler way down
-			TimeslotsList.getItems().addAll(sys.DisplaySchedule(doc1,day1)); //needs to be tested when the required functions are done
-																			//it normally takes a collection I dont know what will be the behaviour
-																			//when it takes arrayList
+			if(sys.DisplaySchedule(doc1,day1)!=null) {
+			TimeslotsList.getItems().addAll(sys.DisplaySchedule(doc1,day1)); 
+			System.out.println("i displayed null");
+			}else {
+				TimeslotsList.getItems().addAll(" "); 
+			}
 		}
 	}
 	
