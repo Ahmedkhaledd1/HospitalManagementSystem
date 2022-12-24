@@ -69,12 +69,17 @@ public class displayScheduleController implements Initializable {
 			displaySuccesslbl.setText("Choice Successfull");
 
 			if(sys.DisplaySchedule(doc1,day1)!=null) {
-			TimeslotsList.getItems().addAll( (String[]) (sys.DisplaySchedule(doc1,day1).toArray())); 
+			TimeslotsList.getItems().addAll( sys.DisplaySchedule(doc1,day1)); 
 			
 			//TimeslotsList.getItems().addAll(FXCollections.observableArrayList(sys.DisplaySchedule(doc1,day1))) ;
-			System.out.println("i displayed null");
+			displaySuccesslbl.setText("ifffffffff");
+			//System.out.println("i displayed null");
 			}else {
 				TimeslotsList.getItems().addAll(" "); 
+				//TimeslotsList.getItems().addAll( (String[]) (sys.DisplaySchedule(doc1,day1).toArray())); 
+				
+				displaySuccesslbl.setText("elseeeeeeeee");
+				
 			}
 		}
 	}

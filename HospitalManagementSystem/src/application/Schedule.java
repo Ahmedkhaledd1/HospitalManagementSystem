@@ -5,9 +5,7 @@ import java.util.HashMap;
 
 public class Schedule {
 	private  HashMap<String, HashMap<Doctor,ArrayList<String>>> timeSlots = new HashMap<String, HashMap<Doctor,ArrayList<String>>>();
-	//private HashMap<Doctor,ArrayList<String>> doctorsTime = new  HashMap<Doctor,ArrayList<String>>();
-	//rivate HashMap<String,String> dd = new  HashMap<String,String>();
-	//private ArrayList<String> timeofDay = new  ArrayList<String>();
+
 	 
 	 
 	public  HashMap<String, HashMap<Doctor,ArrayList<String>>> getTimeSlots() {
@@ -23,6 +21,10 @@ public class Schedule {
 		
 	//	timeSlots.get(time).re
 		}
+	
+	public void addDirect(HashMap<String, HashMap<Doctor,ArrayList<String>>> timeSlots) {
+		this.timeSlots=timeSlots;
+	}
 	
 	public void initiateSchedule(String day,  HashMap<Doctor,ArrayList<String>> doctorsTime ) {
 		timeSlots.put(day, doctorsTime);

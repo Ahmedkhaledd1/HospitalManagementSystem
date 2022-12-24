@@ -17,7 +17,7 @@ public class SystemManager {
 	private  Doctor  currentDoctor;
 	private static SystemManager single_instance = null;
 	private boolean loginFlag=false;
-	
+	private static boolean intiateFlag=false;
 	
 	//single tone function
 	
@@ -27,8 +27,11 @@ public class SystemManager {
         if (single_instance == null) {
             single_instance = new SystemManager();
         }
-        
-        single_instance.intiateData();
+        if(!intiateFlag) {
+        	 single_instance.intiateData();
+        	 intiateFlag=true;
+        }
+       
         return single_instance;
     }
 
@@ -69,7 +72,7 @@ public class SystemManager {
 	
 	public void secertaryIntiateExcuse(String docName,String day) {
 		
-		for (Doctor doc : getDoctors()) {
+		for (Doctor doc : doctors) {
 			if (doc.getName().equals(docName)) {
 				getCurrentSecretary().initiateExcuse(schedule, doc, day);
 			//remove doc from schedule 
@@ -124,10 +127,18 @@ public class SystemManager {
     public ArrayList<String> DisplaySchedule(String doctorName,String day) {
 		
 		for(Doctor doc:getDoctors()) {
-			if(doc.getName().equals(doctorName))
+			if(doc.getName().equals(doctorName)) {
 			//return schedule.getTimeSlots().get(day);
+			System.out.println(doc.getName());
+			System.out.println(doc.getUserName());
+			System.out.println(day);
+			System.out.println(schedule.getTimeSlots().get(day));
+			System.out.println(doc);
+			System.out.println(doc);
+		    System.out.println(schedule.getTimeSlots().get(day).get(doc));
+		    
         	return schedule.getTimeSlots().get(day).get(doc);
-				
+			}	
 			
 		}
 		return null;
@@ -209,25 +220,35 @@ public void intiateData() {
 	
 	HashMap<Doctor,ArrayList<String>> doctorsTime=new HashMap<Doctor,ArrayList<String>>();
 	ArrayList<String> timeStrings =new ArrayList<String>();
-	
+	HashMap<String, HashMap<Doctor,ArrayList<String>>> stimeHashMap =new HashMap<String, HashMap<Doctor,ArrayList<String>>> ();
 	
 	
 	///
 	 Doctor doctor =new Doctor("ali", 'M', "3zbt el qrod", "010011012013", 45, "ali@3zozo.com", "divorced", "dummy1", "dummy1", "heart");
-	getDoctors().add(doctor);
-	timeStrings.add("6:00");
-	timeStrings.add("7:00");
-	timeStrings.add("8:00");
-	timeStrings.add("9:00");
+
+	timeStrings.add(0,"6:00");
+	timeStrings.add(1,"7:00");
+	timeStrings.add(2,"8:00");
+	timeStrings.add(3,"9:00");
+	
 	doctorsTime.put(doctor, timeStrings);
-	schedule.initiateSchedule("Saturday", doctorsTime);
+	/*schedule.initiateSchedule("Saturday", doctorsTime);
 	schedule.initiateSchedule("Sunday", doctorsTime);
 	schedule.initiateSchedule("Monday", doctorsTime);
 	schedule.initiateSchedule("Tuesday", doctorsTime);
 	schedule.initiateSchedule("Wednesday", doctorsTime);
 	schedule.initiateSchedule("Thursday", doctorsTime);
-	schedule.initiateSchedule("Friday", doctorsTime);
+	schedule.initiateSchedule("Friday", doctorsTime);*/
 	
+	stimeHashMap.put("Saturday", doctorsTime);
+	System.out.println(stimeHashMap);
+	schedule.addDirect(stimeHashMap);
+	System.out.println(schedule.getTimeSlots());
+	System.out.println(schedule.getTimeSlots().get("Saturday"));
+	System.out.println(schedule.getTimeSlots().get("Saturday").get(doctor));
+	
+	//return schedule.getTimeSlots().get(day).get(doc);
+	doctors.add(doctor);
 	//doctor added uername and password : dummy1 , dummy1
 	
 	Secretary secretary = new Secretary("sayeda", 'F', "cairo", "01501012013", 95, "sayeda@3azoz.com", "widow", "dummy1", "dummy1");
@@ -346,5 +367,7 @@ public void intiateData() {
 		return loginFlag;
 		
 	}
+	
+	
 
 }
