@@ -18,9 +18,17 @@ public class Schedule {
 		
 	
 		timeSlots.get(day).get(doctor).add(time);
+	
+	
 		
 	//	timeSlots.get(time).re
 		}
+	
+	public void initiateSchedule(String day,  HashMap<Doctor,ArrayList<String>> doctorsTime ) {
+		
+		
+		
+	}
 	
 /*	
 	public void setDays() {
