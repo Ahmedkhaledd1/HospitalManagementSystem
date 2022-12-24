@@ -1,12 +1,10 @@
-package UIControllers;
+package application;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javax.swing.text.View;
-
-import application.Main;
 
 //import UIFiles;
 

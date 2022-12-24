@@ -1,10 +1,7 @@
-package UIControllers;
+package application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-//import UIFiles.*;
-import application.SystemManager;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
