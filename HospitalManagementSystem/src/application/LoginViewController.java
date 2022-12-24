@@ -26,7 +26,10 @@ public class LoginViewController {
 
         userN = userNameTxt.getText();
         pass = passwordTxt.getText();
-        if(userN==null || pass ==null)
+        System.out.println(userN);
+        
+        System.out.println("hi");
+        if(userN.isEmpty() || pass.isEmpty())
         {
             statusLoginlbl.setText("Error! Unsuccessful login! User Name or Password is missing");
         }
@@ -47,7 +50,7 @@ public class LoginViewController {
 
         userN = userNameTxt.getText();
         pass = passwordTxt.getText();
-        if(userN==null || pass ==null)
+        if(userN.isEmpty() || pass.isEmpty())
         {
             statusLoginlbl.setText("Error! Unsuccessful login! User Name or Password is missing");
         }
