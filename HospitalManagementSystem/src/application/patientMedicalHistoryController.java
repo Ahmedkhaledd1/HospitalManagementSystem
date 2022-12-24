@@ -44,7 +44,7 @@ public class patientMedicalHistoryController implements Initializable  {
 	public void displayMedicalPatientHistoryFunc(ActionEvent event) {
 		String pat=patientList.getSelectionModel().getSelectedItem().toString();
 		if(pat!=null) {
-			medicalHistoryList.getItems().add(sys.doctorGetPatientMedicalHistory(pat));
+			medicalHistoryList.getItems().add(sys.doctorGetPatientMedicalHistory(pat).getTreatment());
 		}else
 			errorLabel.setText("Please Enter Patient's Name");
 	}
