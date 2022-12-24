@@ -25,13 +25,14 @@ public class SecretaryController implements Initializable {
  		m.changeScene("LoginView.fxml");
 
     }
+    @FXML
     void seceratryOpSelected(ActionEvent event)throws IOException {
     	String opChosen = SecertaryOPMenue.getSelectionModel().getSelectedItem().toString();
     	
     	if(opChosen=="Initiate Execuse")
     		operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("initiateExcuse.fxml")));
-    	else if(opChosen=="Edit patient Medical History")
-    		operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("EditPatientMedicalHistory.fxml")));
+    	else if(opChosen=="Edit Schedule")
+    		operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("editSchedule.fxml")));
     		else if(opChosen=="Display schedule")
 
     			operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("displaySchedule.fxml")));
