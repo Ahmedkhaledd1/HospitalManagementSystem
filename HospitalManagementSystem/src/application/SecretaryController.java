@@ -33,7 +33,7 @@ public class SecretaryController implements Initializable {
     		operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("initiateExcuse.fxml")));
     	else if(opChosen=="Edit Schedule")
     		operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("editSchedule.fxml")));
-    		else if(opChosen=="Display schedule")
+    		else if(opChosen=="Display Schedule")
 
     			operationScreenShower.setCenter(FXMLLoader.load(getClass().getResource("displaySchedule.fxml")));
     		else if(opChosen=="Add Appointment")

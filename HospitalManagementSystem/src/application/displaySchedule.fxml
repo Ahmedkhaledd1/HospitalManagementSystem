@@ -14,6 +14,6 @@
       <Label layoutX="78.0" layoutY="114.0" text="Day" />
       <Button fx:id="displaybtn" layoutX="152.0" layoutY="157.0" mnemonicParsing="false" onAction="#displayScheduleFunc" style="-fx-background-color: #0598ff;" text="Display" textFill="WHITE" />
       <ListView fx:id="TimeslotsList" layoutX="95.0" layoutY="229.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #0598ff;" />
-      <Label fx:id="displaySuccesslbl" layoutX="165.0" layoutY="449.0" text="Error or nottttttttttt" />
+      <Label fx:id="displaySuccesslbl" layoutX="165.0" layoutY="449.0" />
    </children>
 </AnchorPane>

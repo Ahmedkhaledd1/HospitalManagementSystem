@@ -12,6 +12,6 @@
       <Label fx:id="day_excuselbl" layoutX="108.0" layoutY="233.0" text="Day:" />
       <ComboBox fx:id="daysMenu" layoutX="183.0" layoutY="229.0" onAction="#dayExcuseSelect" prefWidth="150.0" promptText="Choose a day" style="-fx-background-color: #;" />
       <Button fx:id="excuse_confirmbtn" layoutX="169.0" layoutY="314.0" mnemonicParsing="false" onAction="#excuseConfirmFunc" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="Confirm" textFill="WHITE" />
-      <Label fx:id="errorLabel" layoutX="73.0" layoutY="442.0" prefHeight="18.0" prefWidth="256.0" text="errrrrrrrrror" />
+      <Label fx:id="errorLabel" layoutX="73.0" layoutY="442.0" prefHeight="18.0" prefWidth="256.0" />
    </children>
 </AnchorPane>

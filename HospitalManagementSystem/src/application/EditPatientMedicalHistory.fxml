@@ -10,7 +10,7 @@
    <children>
       <Label fx:id="doc_excuselbl" layoutX="77.0" layoutY="159.0" prefHeight="18.0" prefWidth="39.0" text="Patient" />
       <Button layoutX="169.0" layoutY="314.0" mnemonicParsing="false" onAction="#editMedicalHisFunc" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="Add" textFill="WHITE" />
-      <Label fx:id="errorLabel" layoutX="85.0" layoutY="377.0" prefHeight="18.0" prefWidth="250.0" text="Errror massege &quot;rmove text dont forget" />
+      <Label fx:id="errorLabel" layoutX="85.0" layoutY="377.0" prefHeight="18.0" prefWidth="250.0" />
       <ComboBox fx:id="dateMenu" layoutX="183.0" layoutY="155.0" onAction="#dateMenuSelect" prefHeight="26.0" prefWidth="175.0" />
       <TextField fx:id="diagnoseTextBox" layoutX="183.0" layoutY="193.0" prefHeight="26.0" prefWidth="175.0" />
       <TextField fx:id="ttreatTextBox" layoutX="183.0" layoutY="237.0" prefHeight="26.0" prefWidth="175.0" />

@@ -13,7 +13,7 @@
       <ComboBox fx:id="timesMenu" layoutX="183.0" layoutY="199.0" onAction="#timesMenuSelect" prefWidth="150.0" />
       <Button layoutX="169.0" layoutY="314.0" mnemonicParsing="false" onAction="#AddAppointFunc" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="Add" textFill="WHITE" />
       <Label fx:id="doc_excuselbl1" layoutX="77.0" layoutY="119.0" text="Doctor:" />
-      <Label fx:id="errorLabel" layoutX="81.0" layoutY="272.0" prefHeight="18.0" prefWidth="250.0" text="Errror massege &quot;remove text dont forget" />
+      <Label fx:id="errorLabel" layoutX="81.0" layoutY="272.0" prefHeight="18.0" prefWidth="250.0" />
       <ComboBox fx:id="dateMenu" layoutX="183.0" layoutY="155.0" onAction="#dateMenuSelect" prefHeight="26.0" prefWidth="175.0" />
    </children>
 </AnchorPane>
