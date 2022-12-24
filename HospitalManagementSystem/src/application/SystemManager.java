@@ -16,6 +16,7 @@ public class SystemManager {
 	private  Secretary currentSecretary;
 	private  Doctor  currentDoctor;
 	private static SystemManager single_instance = null;
+	private boolean loginFlag=false;
 	
 	
 	//single tone function
@@ -38,9 +39,10 @@ public class SystemManager {
 	// secretary functions 
 	public  void secretaryLogin(String userName, String password) {	
 		for (Secretary sec : getSecretaries()) {
-			
-			if (sec.getUserName().equals(userName)) {
-				if(sec.login(userName, password)) {
+			loginFlag=sec.getUserName().equals(userName);
+			if (loginFlag) {
+				loginFlag=sec.login(userName, password);
+				if(loginFlag) {
 					setCurrentSecretary(sec);
 					break;
 				}
@@ -137,9 +139,10 @@ public class SystemManager {
 	
 	public  void doctorLogin(String userName, String password) {	
 		for (Doctor  doc : getDoctors()) {
-			
-			if (doc.getUserName().equals(userName)) {
-				if(doc.login(userName, password)) {
+			loginFlag=doc.getUserName().equals(userName);
+			if (loginFlag) {
+				loginFlag=doc.login(userName, password);
+				if(loginFlag) {
 					setCurrentDoctor(doc);
 					break;
 				}
@@ -211,6 +214,7 @@ public void intiateData() {
 	getSecretaries().add(secretary);
 	
 	// secertary added uername and password : dummy1 , dummy1
+	
 	MedicalHistory medicalHistory = new MedicalHistory();
 	
 	medicalHistory.setTreatment("diabetes", "ansulin");
@@ -317,6 +321,10 @@ public void intiateData() {
 
 	public void setCurrentDoctor(Doctor currentDoctor) {
 		this.currentDoctor = currentDoctor;
+	}
+	public boolean getLoginFlag() {
+		return loginFlag;
+		
 	}
 
 }

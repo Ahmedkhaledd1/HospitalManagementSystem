@@ -26,16 +26,24 @@ public class LoginViewController {
 
         userN = userNameTxt.getText();
         pass = passwordTxt.getText();
-        if(userN==null || pass ==null)
+        if(userN.isEmpty() || pass.isEmpty())
         {
             statusLoginlbl.setText("Error! Unsuccessful login! User Name or Password is missing");
         }
         else
         {
-            statusLoginlbl.setText("Login Successfull");
+            
             sys.doctorLogin(userN,pass);
-            Main m = new Main();
-    		m.changeScene("Doctor.fxml");
+            if(sys.getLoginFlag()) {
+            	 Main m = new Main();
+         		m.changeScene("Doctor.fxml");
+         	   
+            }else {
+         	   statusLoginlbl.setText("Wrong UseName or Password");
+         	 
+         	   
+            }
+           ;
         }
 
 
@@ -47,18 +55,28 @@ public class LoginViewController {
 
         userN = userNameTxt.getText();
         pass = passwordTxt.getText();
-        if(userN==null || pass ==null)
+        if(userN.isEmpty() || pass.isEmpty())
         {
             statusLoginlbl.setText("Error! Unsuccessful login! User Name or Password is missing");
         }
         else
         {
-            statusLoginlbl.setText("Login Successfull");
+           
+        
             sys.secretaryLogin(userN,pass);
             
-            Main m = new Main();
-    		m.changeScene("Secertary.fxml");
+           if(sys.getLoginFlag()) {
+        	   Main m = new Main();
+       		m.changeScene("Secertary.fxml");
+        	   
+           }else {
+        	   statusLoginlbl.setText("Wrong UseName or Password");
+        	   
+           }
+          
+    	
         }
+       
 
     }
 
