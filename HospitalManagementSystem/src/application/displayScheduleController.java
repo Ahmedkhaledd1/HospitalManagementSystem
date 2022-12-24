@@ -54,8 +54,12 @@ public class displayScheduleController implements Initializable {
 	// Event Listener on Button[#displaybtn].onAction
 	@FXML
 	public void displayScheduleFunc(ActionEvent event) {
-		String doc1 = docMenuSched.getSelectionModel().getSelectedItem().toString();//These are the selected strings but renamed
-		String day1 = daysMenu.getSelectionModel().getSelectedItem().toString();	//to avoid any conflict with the above
+		String doc1=null;
+		String day1=null;
+		if(docMenuSched.getSelectionModel().getSelectedItem()!=null&&daysMenu.getSelectionModel().getSelectedItem()!=null) {
+			 doc1 = docMenuSched.getSelectionModel().getSelectedItem().toString();//These are the selected strings but renamed
+			 day1 = daysMenu.getSelectionModel().getSelectedItem().toString();	//to avoid any conflict with the above
+		}
 		if(doc1==null || day1 ==null)
 		{
 			displaySuccesslbl.setText("Error! There is a missing field");
@@ -65,7 +69,9 @@ public class displayScheduleController implements Initializable {
 			displaySuccesslbl.setText("Choice Successfull");
 
 			if(sys.DisplaySchedule(doc1,day1)!=null) {
-			TimeslotsList.getItems().addAll(sys.DisplaySchedule(doc1,day1)); 
+			TimeslotsList.getItems().addAll( (String[]) (sys.DisplaySchedule(doc1,day1).toArray())); 
+			
+			//TimeslotsList.getItems().addAll(FXCollections.observableArrayList(sys.DisplaySchedule(doc1,day1))) ;
 			System.out.println("i displayed null");
 			}else {
 				TimeslotsList.getItems().addAll(" "); 

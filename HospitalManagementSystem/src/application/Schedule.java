@@ -25,7 +25,7 @@ public class Schedule {
 		}
 	
 	public void initiateSchedule(String day,  HashMap<Doctor,ArrayList<String>> doctorsTime ) {
-		
+		timeSlots.put(day, doctorsTime);
 		
 		
 	}

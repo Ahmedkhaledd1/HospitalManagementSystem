@@ -125,7 +125,8 @@ public class SystemManager {
 		
 		for(Doctor doc:getDoctors()) {
 			if(doc.getName().equals(doctorName))
-				return schedule.getTimeSlots().get(day).get(doc);
+			//return schedule.getTimeSlots().get(day);
+        	return schedule.getTimeSlots().get(day).get(doc);
 				
 			
 		}
@@ -205,8 +206,27 @@ public ArrayList<String> patNamesList(ArrayList<Patient> patss){
 
 
 public void intiateData() {
+	
+	HashMap<Doctor,ArrayList<String>> doctorsTime=new HashMap<Doctor,ArrayList<String>>();
+	ArrayList<String> timeStrings =new ArrayList<String>();
+	
+	
+	
+	///
 	 Doctor doctor =new Doctor("ali", 'M', "3zbt el qrod", "010011012013", 45, "ali@3zozo.com", "divorced", "dummy1", "dummy1", "heart");
 	getDoctors().add(doctor);
+	timeStrings.add("6:00");
+	timeStrings.add("7:00");
+	timeStrings.add("8:00");
+	timeStrings.add("9:00");
+	doctorsTime.put(doctor, timeStrings);
+	schedule.initiateSchedule("Saturday", doctorsTime);
+	schedule.initiateSchedule("Sunday", doctorsTime);
+	schedule.initiateSchedule("Monday", doctorsTime);
+	schedule.initiateSchedule("Tuesday", doctorsTime);
+	schedule.initiateSchedule("Wednesday", doctorsTime);
+	schedule.initiateSchedule("Thursday", doctorsTime);
+	schedule.initiateSchedule("Friday", doctorsTime);
 	
 	//doctor added uername and password : dummy1 , dummy1
 	
