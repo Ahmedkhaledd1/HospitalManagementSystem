@@ -1,4 +1,4 @@
-package UIControllers;
+package application;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.SystemManager;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 
@@ -45,7 +44,7 @@ public class patientMedicalHistoryController implements Initializable  {
 	public void displayMedicalPatientHistoryFunc(ActionEvent event) {
 		String pat=patientList.getSelectionModel().getSelectedItem().toString();
 		if(pat!=null) {
-			medicalHistoryList.getItems().add(sys.doctorGetPatientMedicalHistory(pat));
+			medicalHistoryList.getItems().add(sys.doctorGetPatientMedicalHistory(pat).getTreatment());
 		}else
 			errorLabel.setText("Please Enter Patient's Name");
 	}

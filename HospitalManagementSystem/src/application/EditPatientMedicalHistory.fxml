@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="operationScreenShower" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIControllers.EditPatientMedicalHistoryController">
+<AnchorPane fx:id="operationScreenShower" prefHeight="500.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditPatientMedicalHistoryController">
    <children>
       <Label fx:id="doc_excuselbl" layoutX="77.0" layoutY="159.0" prefHeight="18.0" prefWidth="39.0" text="Patient" />
       <Button layoutX="169.0" layoutY="314.0" mnemonicParsing="false" onAction="#editMedicalHisFunc" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="Add" textFill="WHITE" />

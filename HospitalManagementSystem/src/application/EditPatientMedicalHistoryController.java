@@ -1,4 +1,4 @@
-package UIControllers;
+package application;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,7 +7,6 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.SystemManager;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 
@@ -39,8 +38,11 @@ public class EditPatientMedicalHistoryController implements Initializable{
 	@FXML
 	public void editMedicalHisFunc(ActionEvent event) {
 		String patientName=dateMenu.getSelectionModel().getSelectedItem().toString();
-		if(patientName!=null&&diagnoseTextBox.getText()!=null&&ttreatTextBox.getText()!=null)
+		if(patientName!=null&&diagnoseTextBox.getText()!=null&&ttreatTextBox.getText()!=null) {
 			sys.doctorEditPatientMedicalHistory(patientName, diagnoseTextBox.getText(), ttreatTextBox.getText());
+			errorLabel.setText("added succesfully");
+		}
+			
 		else {
 			errorLabel.setText("please fill the form first");
 		}

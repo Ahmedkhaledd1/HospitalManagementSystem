@@ -1,15 +1,11 @@
-package UIControllers;
+package application;
 
-import java.awt.Label;
+
 import java.io.IOException;
-
-import application.Main;
-//import UIFiles.*;
-import application.SystemManager;
-
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class LoginViewController {
