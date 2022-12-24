@@ -10,6 +10,7 @@ public class SystemManager {
 	private  ArrayList<Secretary> secretaries = new ArrayList<Secretary>();
 	private  ArrayList<Patient> patients = new ArrayList<Patient>();
 	private  ArrayList<Doctor> doctors = new ArrayList<Doctor>();
+	
 	private  HashMap<Doctor, ArrayList<Patient>> doctorToPatientMap = new HashMap<Doctor, ArrayList<Patient>>();
 	private  HashMap<Doctor, ArrayList<Appointment>> doctorToAppointmentsMap = new HashMap<Doctor, ArrayList<Appointment>>();
 	private  Schedule schedule =new Schedule();
@@ -59,8 +60,14 @@ public class SystemManager {
 		for (Doctor doc : getDoctors()) {
 			
 			if (doc.getName().equals(docName)) {
-				
+				if(getDoctorToAppointmentsMap(doc)==null) {
+					ArrayList<Appointment> strings=new ArrayList<Appointment>();
+				strings.add(getCurrentSecretary().addApointment(date, reservationTime, doc, false));
+				doctorToAppointmentsMap.put(doc,strings);
+				System.out.println(getDoctorToAppointmentsMap(doc));
+				}else {
 				getDoctorToAppointmentsMap(doc).add( getCurrentSecretary().addApointment(date, reservationTime, doc, false));
+				}
 				break;
 			}
 			
